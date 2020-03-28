@@ -6,7 +6,6 @@ import matplotlib.pyplot
 # ensure the plots are inside this notebook, not an external window
 # helper to load data from PNG image files
 import imageio
-from letters import symbols_amount
 # neural network class definition
 class neuralNetwork:
     # initialise the neural network
