@@ -21,6 +21,7 @@ class Activation_functions:
 class NN_Model:
     # initialise the neural network
     def __init__(self,inputnodes,hidenodes,outputnodes,learningrate,activation):
+        numpy.random.seed(10)
         # set number of nodes in each input, hidden, output layer
         self.inodes = inputnodes
         self.hnodes = hidenodes
