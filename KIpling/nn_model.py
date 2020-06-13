@@ -32,7 +32,7 @@ class NN_Model:
         self.lr = learningrate
         # activation function
         self.activation_function = activation   
-        pass
+        
 
     # training process     
     def Train(self,inputs_list,targets_list):
@@ -57,7 +57,7 @@ class NN_Model:
         
         # update the weights for the links between the input and hidden layers
         self.hidden_weight += self.lr * numpy.dot((self.hidden_errors * self.hidden_outputs * (1.0 - self.hidden_outputs)), numpy.transpose(self.inputs))
-        pass
+        
 
         
     
@@ -76,7 +76,7 @@ class NN_Model:
         # calculate the signals emerging from final output layer
         self.final_outputs  = self.activation_function(self.final_inputs)
         return self.final_outputs
-        pass
+        
     
 
 
