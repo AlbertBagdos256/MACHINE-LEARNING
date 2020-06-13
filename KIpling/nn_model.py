@@ -51,7 +51,7 @@ class NN_Model:
         # output layer error is the (taregt - actual)
         self.output_errors  = self.targets - self.final_inputs
         # hidden layer error is the output_errors, split by weights,, recombined at hidden nodes
-        self.hidden_errors  = numpy.dot(self.hidden_weight.T,self.output_errors)
+        self.hidden_errors  = numpy.dot(self.output_weight.T,self.output_errors)
          # update the weights for the links between the hidden and output layers
         self.output_weight += self.lr * numpy.dot((self.output_errors * self.final_outputs * (1.0 - self.final_outputs)), numpy.transpose(self.hidden_outputs))
         
