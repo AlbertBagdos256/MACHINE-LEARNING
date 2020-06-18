@@ -31,7 +31,7 @@ for i in range(10000):
 print("Synaptic weights after training")
 print(synaptic_weights)
     
-print("Outpits after training")
+print("Outputs after training")
 print(outputs)
 
 #TEst
