@@ -41,7 +41,7 @@ for e in range(epochs):
 # test the neural network with our own images
 
 # load image data from png files into an array
-print ("loading ... my_own_images/2828_my_own_image.png")
+print("loading ... my_own_images/2828_my_own_image.png")
 img_array = imageio.imread('C:/Users/1/Desktop/projects/ML/my_own_images/2828_my_own_image.png', as_gray=True)
     
 # reshape from 28x28 to list of 784 values, invert values
@@ -57,7 +57,7 @@ matplotlib.pyplot.imshow(img_data.reshape(28,28), cmap='Greys', interpolation='N
 
 # query the network
 outputs = n.query(img_data)
-print (outputs)
+print(outputs)
 
 # the index of the highest value corresponds to the label
 label = numpy.argmax(outputs)
