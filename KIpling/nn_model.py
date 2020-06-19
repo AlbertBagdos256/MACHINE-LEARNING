@@ -82,8 +82,5 @@ class NN_Model:
 
 
 '''
-Example:
-
-model =NN_Model(NN_Model(input_nodes,hidden_nodes,output_nodes,learning_rate,activation_func))
-
+Example: model =NN_Model(NN_Model(input_nodes,hidden_nodes,output_nodes,learning_rate,activation_func))
 '''
