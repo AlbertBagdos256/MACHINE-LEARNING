@@ -7,6 +7,7 @@ x_train = numpy.array([[1,0,1],
                [1,1,0],
                [0,1,0],])
 
+
 y_train = numpy.array([[1,
                 0,
                 1,
