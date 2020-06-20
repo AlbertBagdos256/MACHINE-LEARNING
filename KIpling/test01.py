@@ -16,8 +16,7 @@ input_nodes     = 3
 hidden_nodes    = 3
 output_nodes    = 3
 learning_rate   = 0.3
-activation_func = Activation_functions.sigmoid
-example = example = NN_Model(input_nodes,hidden_nodes,output_nodes,learning_rate,activation_func)
+example = example = NN_Model(input_nodes,hidden_nodes,output_nodes,learning_rate)
 epochs  = 1000
 
 for e in range(epochs):
