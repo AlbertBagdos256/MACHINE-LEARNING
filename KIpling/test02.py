@@ -1,4 +1,4 @@
-from nn_model import NN_Model,Activation_functions
+from nn_model import NN_Model
 import numpy
 import imageio
 import matplotlib.pyplot
