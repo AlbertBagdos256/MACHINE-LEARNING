@@ -8,11 +8,10 @@ output_nodes = 10
 
 # learning rate
 learning_rate = 0.7
-# activation
-activation_func = Activation_functions.sigmoid
+
 
 # create instance of neural network
-n = NN_Model(input_nodes,hidden_nodes,output_nodes, learning_rate,activation_func)
+n = NN_Model(input_nodes,hidden_nodes,output_nodes, learning_rate)
 
 training_data_file = open("C:/Users/1/Desktop/projects/ML/mnist_dataset/mnist_train_100.csv", 'r')
 training_data_list = training_data_file.readlines()
