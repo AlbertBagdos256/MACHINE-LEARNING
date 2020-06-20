@@ -1,26 +1,21 @@
 #----------------------------#
 # Author: Albert Bagdasarov
 # Date: 09.06.20
-#----------------------------#
+#----------------------------#\
 
-__version__ = '1.0'
+__version__ = '2.0'
 
 
 # Importing Libraries
 import numpy
 # library for plotting arrays
-import matplotlib.pyplot
+import matplotlib.pyplot as plt
+import scipy.special
 
-class Activation_functions:
-    def sigmoid(x):
-        return 1 / (1 + numpy.exp(-x))
-    def ReLU(x):
-        return x * (x > 0)
-    
 
 class NN_Model:
     # initialise the neural network
-    def __init__(self,inputnodes,hidenodes,outputnodes,learningrate,activation):
+    def __init__(self,inputnodes,hidenodes,outputnodes,learningrate):
         numpy.random.seed(10)
         # set number of nodes in each input, hidden, output layer
         self.inodes = inputnodes
@@ -32,14 +27,14 @@ class NN_Model:
         # Learning rate
         self.lr = learningrate
         # activation function
-        self.activation_function = activation   
-        
+        self.activation_function = lambda x: scipy.special.expit(x)
 
     # training process     
     def Train(self,inputs_list,targets_list):
         # convert inputs list to 2d array
-        self.inputs  = numpy.array(inputs_list, ndmin=2).T
-        self.targets = numpy.array(targets_list, ndmin=2).T
+        
+        self.inputs    = numpy.array(inputs_list, ndmin=2).T
+        self.targets   = numpy.array(targets_list, ndmin=2).T
         # calcualte signals into hidden_layer
         self.hidden_inputs  = numpy.dot(self.hidden_weight,self.inputs)
         # calculate the signals emerging from hidden layer
@@ -50,7 +45,7 @@ class NN_Model:
         self.final_outputs  = self.activation_function(self.final_inputs)
 
         # output layer error is the (taregt - actual)
-        self.output_errors  = self.targets - self.final_inputs
+        self.output_errors  = self.targets - self.final_outputs
         # hidden layer error is the output_errors, split by weights,, recombined at hidden nodes
         self.hidden_errors  = numpy.dot(self.output_weight.T,self.output_errors)
          # update the weights for the links between the hidden and output layers
@@ -59,7 +54,6 @@ class NN_Model:
         # update the weights for the links between the input and hidden layers
         self.hidden_weight += self.lr * numpy.dot((self.hidden_errors * self.hidden_outputs * (1.0 - self.hidden_outputs)), numpy.transpose(self.inputs))
         
-
         
     
     #interrogation of a neural network
@@ -77,10 +71,3 @@ class NN_Model:
         # calculate the signals emerging from final output layer
         self.final_outputs  = self.activation_function(self.final_inputs)
         return self.final_outputs
-        
-    
-
-
-'''
-Example: model =NN_Model(NN_Model(input_nodes,hidden_nodes,output_nodes,learning_rate,activation_func))
-'''
