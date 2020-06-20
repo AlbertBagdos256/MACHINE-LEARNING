@@ -1,6 +1,7 @@
 from nn_model import NN_Model,Activation_functions
 import numpy
 
+
 x_train = numpy.array([[1,0,1],
                [0,0,1],
                [1,1,0],
