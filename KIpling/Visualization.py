@@ -11,15 +11,15 @@ class Neuron():
     def Draw(self, neuron_R):
         self.circle  =  pyplot.Circle((self.x,self.y), radius = neuron_R,fill = False)
         pyplot.gca().add_patch(self.circle)
-
+# Layers
 class Layer():
     def __init__(self, network, amount_of_neurons, amount_of_neurons_in_widest_layer):
         
-        self.vertical_distance_between_layers    = 6
-        self.horizontal_distance_between_neurons = 2
-        self.neuron_R = 0.5
+        self.vertical_distance_between_layers    = 15
+        self.horizontal_distance_between_neurons = 10
+        self.neuron_R = 1
         self.amount_of_neurons_in_widest_layer = amount_of_neurons_in_widest_layer
-        self.previous_layer = self.__get_previous_layer(network)
+        self.previous_layer = self.get_previous_layer(network)
         self.y       = self.layer_calculation_y()
         self.neurons = self.Neurons_init(amount_of_neurons)
         
@@ -42,13 +42,13 @@ class Layer():
         else:
             return 0
             
-    def __get_previous_layer(self, network):
+    def get_previous_layer(self, network):
         if len(network.layers) > 0:
             return network.layers[-1]
         else:
             return None
             
-    def __line_between_two_neurons(self, neuron1, neuron2):
+    def line_between_two_neurons(self, neuron1, neuron2):
         self.angle        = atan((neuron2.x - neuron1.x) / float(neuron2.y - neuron1.y))
         self.x_adjustment = self.neuron_R * sin(self.angle)
         self.y_adjustment = self.neuron_R * cos(self.angle)
@@ -60,7 +60,7 @@ class Layer():
             neuron.Draw( self.neuron_R)
             if self.previous_layer:
                 for previous_layer_neuron in self.previous_layer.neurons:
-                    self.__line_between_two_neurons(neuron, previous_layer_neuron)
+                    self.line_between_two_neurons(neuron, previous_layer_neuron)
         
         self.x_text = self.amount_of_neurons_in_widest_layer * self.horizontal_distance_between_neurons
         
@@ -77,7 +77,6 @@ class NN():
         self.number_of_neurons_in_widest_layer = number_of_neurons_in_widest_layer
         self.layers = []
         self.layertype = 0
-        
     def Add_layer(self, number_of_neurons):
         self.layer = Layer(self, number_of_neurons,self.number_of_neurons_in_widest_layer)
         self.layers.append(self.layer)
