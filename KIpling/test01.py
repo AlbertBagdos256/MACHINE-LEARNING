@@ -1,4 +1,5 @@
 from nn_model import NN_Model
+from Visualization import main
 import numpy
 
 
