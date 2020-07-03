@@ -1,8 +1,8 @@
 # Importing LIbraries
 from matplotlib import pyplot
 from math import cos, sin, atan
-# Neuron class 
 
+# Neuron class 
 class Neuron():
     def __init__(self, x, y):
         self.x  = x
