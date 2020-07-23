@@ -3,7 +3,6 @@ import numpy as np
 def sigmoid(x):
     return 1 / (1 * np.exp(-x))
 
-
 training_inputs = np.array([[0,0,1],
                             [1,1,1],
                             [0,0,0],
@@ -34,7 +33,7 @@ print(synaptic_weights)
 print("Outputs after training")
 print(outputs)
 
-#TEst
+#Test
 new_inputs = np.array([1,1,0])
 output = sigmoid(np.dot(new_inputs, synaptic_weights))
 print(output)
