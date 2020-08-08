@@ -34,6 +34,7 @@ print(synaptic_weights)
 print("Outputs after training")
 print(outputs)
 
+
 #Test
 new_inputs = np.array([1,1,0])
 output = sigmoid(np.dot(new_inputs, synaptic_weights))
