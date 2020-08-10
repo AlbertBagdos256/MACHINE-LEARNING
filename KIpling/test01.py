@@ -26,8 +26,7 @@ epochs  = 1000
 
 for e in range(epochs):
     example.Train(x_train,y_train)
-    pass
-pass
+    
 
 test = [[1,0,1]]
 
