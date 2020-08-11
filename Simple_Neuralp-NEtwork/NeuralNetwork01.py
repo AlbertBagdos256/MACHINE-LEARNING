@@ -11,7 +11,7 @@ training_inputs = np.array([[0,0,1],
 training_outputs = np.array([[0,1,0,1]]).T
 
 
-np.random.seed(1)
+np.random.seed(10)
 
 synaptic_weights = 2 * np.random.random((3,1)) - 1
 
